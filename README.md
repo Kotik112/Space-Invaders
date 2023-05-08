@@ -2,7 +2,8 @@
 
 A classic Space Invaders game implemented in Python using the Pygame library.
 
-![Space Invaders]()
+![image](https://user-images.githubusercontent.com/88910492/236892686-5a2984cc-f4bb-4219-87ca-bef0112995bb.png)
+)
 
 ## Getting Started
 
