@@ -122,11 +122,6 @@ class Game:
             # Increase score
             self.score += 10
 
-            # Check if the score is higher than the high score
-            if self.score > self.high_score:
-                self.high_score = self.score
-                self.save_high_score()
-
         if pygame.sprite.spritecollide(self.player, self.alien_bullet_group, True):
             # Play sound
             self.player_hit_sound.play()
