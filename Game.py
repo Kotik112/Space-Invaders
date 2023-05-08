@@ -1,4 +1,5 @@
-import sys, os
+import sys
+import os
 
 import pygame.mixer
 
@@ -40,7 +41,6 @@ class Game:
 
         # Read high score from file
         self.high_score = self.read_high_score()
-
 
     def update(self):
         """update the game"""
@@ -155,7 +155,7 @@ class Game:
                 alien = Alien(64 + (row * 64), 64 + (column * 64), self.round_number, self.alien_bullet_group)
                 self.alien_group.add(alien)
 
-        # Pause the game and promt the user to start
+        # Pause the game and prompt the user to start
         self.pause_game("Space Invaders round: " + str(self.round_number) + ",  High score: " + str(self.high_score), "Press 'Enter' to start")
         self.new_round_sound.play()
 
@@ -230,7 +230,8 @@ class Game:
         # Start a new round
         self.start_new_round()
 
-    def read_high_score(self):
+    @staticmethod
+    def read_high_score():
         """Read the high score from a file"""
         # Determine the location of the high score file
         if hasattr(sys, '_MEIPASS'):
