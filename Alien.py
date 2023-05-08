@@ -17,7 +17,7 @@ class Alien(pygame.sprite.Sprite):
         self.starting_x = x
         self.starting_y = y
 
-        self.direction = 0.5
+        self.direction = 1
         self.velocity = velocity
         self.bullet_group = bullet_group
 

@@ -1,5 +1,5 @@
 import pygame
-from Game import WINDOW_WIDTH, WINDOW_HEIGHT
+from Constants import WINDOW_WIDTH, WINDOW_HEIGHT, MOVEMENT_THRESHOLD
 from PlayerBullet import PlayerBullet
 
 
@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         """Update the player's position"""
-        player_movement_threshold = 450
+        player_movement_threshold = MOVEMENT_THRESHOLD
         keys = pygame.key.get_pressed()
 
         # Move the player within the bounds of the game

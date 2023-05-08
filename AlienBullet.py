@@ -1,6 +1,6 @@
 import pygame
 
-from Game import WINDOW_HEIGHT
+from Constants import WINDOW_HEIGHT
 
 
 class AlienBullet(pygame.sprite.Sprite):

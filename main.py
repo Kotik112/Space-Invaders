@@ -1,7 +1,7 @@
-import pygame, random
+import pygame
 
-from Alien import Alien
-from Game import Game, WINDOW_WIDTH, WINDOW_HEIGHT
+from Constants import WINDOW_WIDTH, WINDOW_HEIGHT
+from Game import Game
 from Player import Player
 
 pygame.init()
@@ -24,14 +24,14 @@ player_group.add(player)
 # Will add Alien objects via the game's start new round method
 alien_group = pygame.sprite.Group()
 
-#TEST ALIENS, DELET LATER
-for i in range(10):
-    alien = Alien(64 + i * 64, 100, 5, alien_bullet_group)
-    alien_group.add(alien)
-
 # Create a Game object
-my_game = Game()
+my_game = Game(player, alien_group, player_bullet_group, alien_bullet_group, display_surface)
+my_game.start_new_round()
 
+#Load the background image
+background_image = pygame.image.load("assets/background.jpg")
+background_rect = background_image.get_rect()
+background_rect.topleft = (0, 0)
 
 running = True
 while running:
@@ -43,7 +43,7 @@ while running:
                 player.fire()
 
     # Fill the display
-    display_surface.fill((0, 0, 0))
+    display_surface.blit(background_image, background_rect)
 
     # Update and display all sprite groups
     player_group.update()
