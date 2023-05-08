@@ -5,7 +5,7 @@ WINDOW_HEIGHT = 700
 class Game():
     """A class to help control and update gameplay"""
 
-    def __int__(self):
+    def __init__(self):
         """initialize game settings"""
         pass
 

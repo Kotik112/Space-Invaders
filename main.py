@@ -1,5 +1,6 @@
 import pygame, random
 
+from Alien import Alien
 from Game import Game, WINDOW_WIDTH, WINDOW_HEIGHT
 from Player import Player
 
@@ -23,6 +24,11 @@ player_group.add(player)
 # Will add Alien objects via the game's start new round method
 alien_group = pygame.sprite.Group()
 
+#TEST ALIENS, DELET LATER
+for i in range(10):
+    alien = Alien(64 + i * 64, 100, 5, alien_bullet_group)
+    alien_group.add(alien)
+
 # Create a Game object
 my_game = Game()
 
@@ -32,6 +38,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                player.fire()
 
     # Fill the display
     display_surface.fill((0, 0, 0))
@@ -53,6 +62,7 @@ while running:
     my_game.update()
     my_game.draw(display_surface)
 
+    # Update the display and tick the clock
     pygame.display.update()
     clock.tick(FPS)
 
