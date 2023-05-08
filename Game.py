@@ -1,4 +1,4 @@
-import sys
+import sys, os
 
 import pygame.mixer
 
@@ -237,15 +237,25 @@ class Game:
 
     def read_high_score(self):
         """Read the high score from a file"""
-        # Read the high score from a file
-        with open("high_score.txt", "r") as file:
+        # Determine the location of the high score file
+        if hasattr(sys, '_MEIPASS'):
+            high_score_file = os.path.join(sys._MEIPASS, "high_score.txt")
+        else:
+            high_score_file = "high_score.txt"
+
+        # Read the high score from the file
+        with open(high_score_file, "r") as file:
             saved_high_score = file.read()
-            print("High score read!")
             return int(saved_high_score)
 
     def save_high_score(self):
         """Save the high score to a file"""
-        # Save the high score to a file
-        with open("high_score.txt", "w") as file:
+        # Determine the location of the high score file
+        if hasattr(sys, '_MEIPASS'):
+            high_score_file = os.path.join(sys._MEIPASS, "high_score.txt")
+        else:
+            high_score_file = "high_score.txt"
+
+        # Save the high score to the file
+        with open(high_score_file, "w") as file:
             file.write(str(self.high_score))
-            print("New high score saved!")
